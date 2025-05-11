@@ -8,7 +8,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { formUtils } from '../../../utils/form-utils';
+import { FormUtils } from '../../../utils/form-utils';
+
 
 @Component({
   selector: 'app-dynamic-page',
@@ -17,7 +18,7 @@ import { formUtils } from '../../../utils/form-utils';
 })
 export class DynamicPageComponent {
   private fb = inject(FormBuilder);
-  formUtils = formUtils;
+  formUtils = FormUtils;
 
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -51,6 +52,6 @@ export class DynamicPageComponent {
 
   onSubmit() {
     this.myForm.markAllAsTouched();
-    
+
   }
 }
